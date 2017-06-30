@@ -1,0 +1,324 @@
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    background-color:#333233;
+}
+ 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+    background-color:#1b1b1b;
+    
+}
+html, body {
+  height: 100%;
+}
+html { 
+  background: url(images/back.png) top left; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@keyframes spin {
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+#six:hover{
+     animation:spin 3s linear infinite;
+}
+#minilogo {
+    display:inline-block;
+    width:40%;
+}
+#six {
+    display: inline-block;
+    margin-top:23%;
+    width:8%;
+    margin-left: 25%;
+    margin-right: 8px;
+    transition: all 1000s;
+}
+#menuBar{
+    z-index:3;
+    margin-top:-1vw;
+    position:fixed;
+    right:0;
+    height:179vw;
+    width:25vw;
+    background-color:#4f0963;
+}
+.menuSection{
+    text-align: center;
+    position:relative;
+    margin-top: 30%;
+}
+.menuSection a{
+    position:relative;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    line-height: 45px;
+    text-transform: uppercase;
+    outline: none;
+    color:whitesmoke;
+    text-decoration: none;
+    font-weight: 400;
+    font-size:1.5vw;
+    height:45px;
+    padding:0 30px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.menuSection a:hover, .menuSection a:focus{
+	outline: none;
+}
+.menuSection a::after, .menuSection a::before{
+    position: absolute;
+    content:" ";
+    height:2px;
+    width:45px;
+    background-color:white;
+    opacity:0.2;
+    transition:all, 0.3s;
+}
+.menuSection a::before{
+    left:0;
+    top:50%;
+    transform-origin: 0, 0;
+    transform:rotate(90deg);
+} 
+.menuSection a::after{
+    right:0;
+    bottom:45%;
+    transform-origin: 0, 100%;
+    transform:rotate(90deg);
+} 
+.menuSection a:hover::after,.menuSection a:hover::before,
+.menuSection a:focus::after,.menuSection a:focus::before{
+        opacity: 1;
+}
+.menuSection a:hover::before,.menuSection a:focus::before{
+    top:0;
+    left:50%;
+    transform: rotate(0deg);
+    transform:translateX(-50%);
+}
+.menuSection a:hover::after,.menuSection a:focus::after{
+    bottom:0;
+    right:50%;
+    transform: rotate(0deg);
+    transform:translateX(50%);
+}
+#mainPart{
+    width:75vw;
+    margin-left:-0.8vw;
+    color:whitesmoke;
+    margin-top:-1vw;
+}
+#header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:75vw;
+    height:4.6vw;
+    border-bottom:solid 2px #4f0963;
+    background-color:rgba(255, 255, 255, 0.8);
+}
+#headerLogo{
+    height:40%; 
+    margin-left:1%;
+    margin-top:2%;
+}
+#header a{
+    position: relative;
+}
+#header a::after{
+    position:absolute;
+    content:' ';
+    width:0;
+    height:2px;
+    background-color: #4f0963;
+    right:50%;
+    left:50%;
+    bottom:0;
+    transition:all 0.3s;  
+}
+#header a:hover::after{
+    width:100%;
+    left:0;
+    right:0;
+    margin-left:2%;
+}
+.h1:hover{
+    border-bottom:solid 1px whitesmoke;
+    border-top:solid 1px whitesmoke;
+}
+.h1{
+    transition: all, .2s, ease-out;
+}
+span{
+    font-size: 15px;
+    font-family: monospace;
+    margin-top:20px;
+    margin-left:1%;
+    margin-right:3%;
+}
+span a{
+    text-decoration: none;
+    color:whitesmoke;
+}
+span a:hover{
+    text-decoration: underline;
+}
+h1{
+    padding-top: 2%; 
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-style:normal;
+    transition: all, 0.3 s, ease;
+}
+p{
+    position: relative;
+    margin:25px;
+    text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 300;  
+}
+.text{
+    display: block;
+    padding-bottom: 20px;
+    margin-left:3%;
+    margin-right:3%;
+    border-bottom: dashed 1px whitesmoke;
+}
+.button{
+    vertical-align: middle;
+    display:inline-block;
+    position:relative;
+    margin-left:10%;
+    margin-top:12%;
+    height:5.5vw;
+    width:15vw;
+    border: solid 1px whitesmoke;
+    text-align: center;
+    margin-bottom:5%;
+}
+.button div{
+    position: absolute;
+    top:0;
+    background-color:#4f0963;
+    height:100%;
+    width:0%;
+    left:0;
+    text-align: center;
+}
+.button p{
+    position:relative;
+     z-index: 2;
+    font-size:1.1vw;
+    margin:12%;
+}
+.numbertheory{
+   display:none;
+}
+.combinatorics{
+    display:none;
+}
+.proof{
+    display:none;
+}
+ .trigonometry{
+    display:none;
+}
+.points{
+    display:none;
+}
+.theorems{
+    display:none;
+}
+.me{
+    display:none;
+}
+.too{
+    display:none;
+}
+.miss{
+    display:none;
+}
+}
+#info{
+    margin-left:4.7vw;
+}
+#info ul{
+    font-family:monospace;
+    text-transform: uppercase;
+    list-style-type: none;
+    font-size:1.5vw;
+    line-height: 40px;
+    display:inline-block;
+    margin-right:10%;
+}
+#info li{
+    cursor: pointer;
+}
+#info li:hover{
+    text-decoration: underline;
+}
+.left{
+    display:inline-block;
+    width:49%;
+}
+.right{
+    display:inline-block;
+    width:49%;
+}
+.overlay{
+    display:none;
+    position:fixed;
+    width:102vw;
+    height:100vw;
+    background-color:rgba(0,0,0,0.7);
+    z-index: 4;
+    padding:0;
+    margin-left:-1%;
+    bottom:0;
+}
+.modelWindow {
+    display:none;
+    position:absolute;
+    z-index:5;
+    top:2vw;
+    width:60vw;
+    background-color:whitesmoke;
+    border-radius: 5px;
+    left:15vw;
+}
+.close{
+    position:absolute;
+    width:3%;
+    right:1%;
+    top:1%;
+}
+.modelContent{
+    margin:5%;
+    color:black;
+}
+.formula{
+    width:70%;
+}
+.Chertezh{
+    width:20%;
+    display:block;
+}
+.inProof{
+    display:inline-block;
+    height:3%;
+}
