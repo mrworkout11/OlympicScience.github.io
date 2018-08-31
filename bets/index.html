@@ -32,6 +32,8 @@
         handWins++;
         console.log(handWins);
            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 method:'post',
                 url:'handWins.php',
                 data: {
