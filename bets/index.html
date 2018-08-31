@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>OLYMPIC SCIENCE</title>
+<meta charset="utf-8" />
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<script type="text/javascript" src="../jquery-3.2.0.js"></script>
+<script src="../mathphys.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<link type="text/css" href="../stylesheet2.css" rel="stylesheet">
+<link rel="stylesheet" href="bootstrap.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        var handWins, handLoses, volleyWins, volleyLoses;
+        $.ajax({
+            url: 'stats.json',
+            dataType:'json',
+            method:'get',
+            success: function(data){
+                console.log("sasat");
+                $('#handWins').text(data.Handball[0].handWins);
+                handWins=data.Handball[0].handWins;
+                $('#handLoses').text(data.Handball[0].handLoses);
+                $('#volleyWins').text(data.Volleyball[0].volleyWins);
+                $('#volleyLoses').text(data.Volleyball[0].volleyLoses);
+            }
+        });
+
+       $("#handWinsPlus").click(function(){
+        handWins++;
+        console.log(handWins);
+           $.ajax({
+                method:'post',
+                url:'handWins.php',
+                data: {
+                    handWins: handWins
+                },
+                success: function(){
+                    console.log('sasat');
+                }
+           }); 
+           
+       }); 
+    });
+</script>
+
+</head>
+<body>
+<div id="menuBar">
+<img id="six" src="../images/sixirenka.png"/><img id="miniLogo" src="../images/miniLogo.png"/>
+<nav class="menuSection">
+<a id="algebra" class="pageChange" href="../algebra.html">Алгебра</a> <br />
+<a id="geometry" class="pageChange" href="../geometry.html">Геометрия</a> <br />
+<a id="physics" class="pageChange" href="../Physix.html">Физика</a><br />
+<a id="bets" class="pageChange" href="../bets/index.html">Ставки</a><br />
+</nav>
+</div>
+<div id="header"><a id="index" class="pageChange" href="../index.html"><img id="headerLogo" src="../images/headerIndex.png"/></a></div>
+<div id="mainPart">
+    <div class="emptyBlock" style="height:7vw;"></div>
+    <div class="row">
+        <div class="col-md-5 col-sm-10 col-xs-10">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-left: auto; margin-right: auto">
+                <div class="card-header textik" style="font-size:1.5em">Гандболл</div>
+                  <div class="card-body">
+                    <h5 class="card-title textik" style="font-size:1em;">Выигрышей:</h5>
+                        <span id="handWins" class="stats"></span>
+                        <i id="handWinsPlus" class="fas fa-plus" style="margin-left:4px; margin-right:4px"> </i>
+                        <i class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
+                    
+                    <h5 class="card-title textik" style="font-size:1em">Проигрышей:</h5>
+                        <span id="handLoses" class="stats">salam2</span>
+                        <i class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
+                        <i class="fas fa-minus"style="margin-left:4px; margin-right:4px"></i>
+                    
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-md-5 col-sm-10 col-xs-10" >
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-left: auto; margin-right: auto">
+                <div class="card-header textik" style="font-size:1.5em">Волейбол</div>
+                  <div class="card-body">
+                    <h5 class="card-title textik" style="font-size:1em">Выигрышей:</h5>
+                        <span id="volleyWins" class="stats"></span>
+                        <i class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
+                        <i class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
+                    
+                    <h5 class="card-title textik" style="font-size:1em">Проигрышей:</h5>
+                        <span id="volleyLoses" class="stats"></span>
+                        <i class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
+                        <i class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
+                    
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
