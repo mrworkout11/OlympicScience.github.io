@@ -20,30 +20,211 @@
             method:'get',
             success: function(data){
                 console.log("sasat");
-                $('#handWins').text(data.Handball[0].handWins);
-                handWins=data.Handball[0].handWins;
-                $('#handLoses').text(data.Handball[0].handLoses);
-                $('#volleyWins').text(data.Volleyball[0].volleyWins);
-                $('#volleyLoses').text(data.Volleyball[0].volleyLoses);
+                $('#handWins').text(data.Handball.handWins);
+                handWins=data.Handball.handWins;
+                $('#handLoses').text(data.Handball.handLoses);
+                handLoses=data.Handball.handLoses;
+                $('#volleyWins').text(data.Volleyball.volleyWins);
+                volleyWins=data.Volleyball.volleyWins;
+                $('#volleyLoses').text(data.Volleyball.volleyLoses);
+                volleyLoses=data.Volleyball.volleyLoses;
             }
         });
-
+        // function button_clicked(counter,sport,result){
+        //      counter++;
+        //      console.log(counter);
+        //      $.ajax({
+        //         method:'post',
+        //         url:'updater.php',
+        //         data: {
+        //             handWins: counter
+        //         },
+        //         success: function(){
+        //             $.ajax({
+        //                 url: 'stats.json',
+        //                 dataType:'json',
+        //                 method:'get',
+        //                 success: function(data){
+        //                     $('#'+result).text(data[sport][result]);
+        //                     counter=data[sport][result];
+        //                 }
+        //             });
+        //         }
+        //    });   
+        // }
+        // $("#handWinsPlus").click(function(){
+        //     button_clicked(handWins, 'Handball', 'handWins');
+        // });
        $("#handWinsPlus").click(function(){
         handWins++;
-        console.log(handWins);
            $.ajax({
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
                 method:'post',
-                url:'handWins.php',
+                url:'updater.php',
                 data: {
                     handWins: handWins
                 },
                 success: function(){
-                    console.log('sasat');
+                    console.log('eeee');
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#handWins').text(data.Handball.handWins);
+                            handWins=data.Handball.handWins;
+                        }
+                    });
+                }
+           });   
+        }); 
+       $("#handWinsMinus").click(function(){
+        handWins--;
+           $.ajax({
+                method:'post',
+                url:'updater.php',
+                data: {
+                    handWins: handWins
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#handWins').text(data.Handball.handWins);
+                            handWins=data.Handball.handWins;
+                        }
+                    });
                 }
            }); 
-           
+       }); 
+       $("#handLosesPlus").click(function(){
+        handLoses++;
+        console.log(handLoses);
+           $.ajax({
+                method:'post',
+                url:'updater.php',
+                data: {
+                    handLoses: handLoses
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#handLoses').text(data.Handball.handLoses);
+                            handLoses=data.Handball.handLoses;
+                        }
+                    });
+                }
+           }); 
+       }); 
+       $("#handLosesMinus").click(function(){
+        handLoses--;
+           $.ajax({
+                
+                method:'post',
+                url:'updater.php',
+                data: {
+                    handLoses: handLoses
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#handLoses').text(data.Handball.handLoses);
+                            handLoses=data.Handball.handLoses;
+                        }
+                    });
+                }
+           }); 
+       });
+       $("#volleyWinsPlus").click(function(){
+        volleyWins++;
+           $.ajax({
+                method:'post',
+                url:'updater.php',
+                data: {
+                    volleyWins: volleyWins
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#volleyWins').text(data.Volleyball.volleyWins);
+                            volleyWins=data.Volleyball.volleyWins;
+                        }
+                    });
+                }
+           }); 
+       }); 
+       $("#volleyWinsMinus").click(function(){
+        volleyWins--;
+           $.ajax({
+                method:'post',
+                url:'updater.php',
+                data: {
+                    volleyWins: volleyWins
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#volleyWins').text(data.Volleyball.volleyWins);
+                            volleyWins=data.Volleyball.volleyWins;
+                        }
+                    });
+                }
+           }); 
+       }); 
+       $("#volleyLosesPlus").click(function(){
+        volleyLoses++;
+           $.ajax({
+                method:'post',
+                url:'updater.php',
+                data: {
+                    volleyLoses: volleyLoses
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#volleyLoses').text(data.Volleyball.volleyLoses);
+                            volleyLoses=data.Volleyball.volleyLoses;
+                        }
+                    });
+                }
+           }); 
+       }); 
+       $("#volleyLosesMinus").click(function(){
+        volleyLoses--;
+           $.ajax({
+                method:'post',
+                url:'updater.php',
+                data: {
+                    volleyLoses: volleyLoses
+                },
+                success: function(){
+                    $.ajax({
+                        url: 'stats.json',
+                        dataType:'json',
+                        method:'get',
+                        success: function(data){
+                            $('#volleyLoses').text(data.Volleyball.volleyLoses);
+                            volleyLoses=data.Volleyball.volleyLoses;
+                        }
+                    });
+                }
+           }); 
        }); 
     });
 </script>
@@ -65,17 +246,17 @@
     <div class="row">
         <div class="col-md-5 col-sm-10 col-xs-10">
             <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-left: auto; margin-right: auto">
-                <div class="card-header textik" style="font-size:1.5em">Гандболл</div>
+                <div class="card-header textik" style="font-size:1.5em">Гандбол</div>
                   <div class="card-body">
                     <h5 class="card-title textik" style="font-size:1em;">Выигрышей:</h5>
                         <span id="handWins" class="stats"></span>
                         <i id="handWinsPlus" class="fas fa-plus" style="margin-left:4px; margin-right:4px"> </i>
-                        <i class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
+                        <i id="handWinsMinus" class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
                     
                     <h5 class="card-title textik" style="font-size:1em">Проигрышей:</h5>
-                        <span id="handLoses" class="stats">salam2</span>
-                        <i class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
-                        <i class="fas fa-minus"style="margin-left:4px; margin-right:4px"></i>
+                        <span id="handLoses" class="stats"></span>
+                        <i id="handLosesPlus" class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
+                        <i id="handLosesMinus" class="fas fa-minus"style="margin-left:4px; margin-right:4px"></i>
                     
                   </div>
             </div>
@@ -86,13 +267,13 @@
                   <div class="card-body">
                     <h5 class="card-title textik" style="font-size:1em">Выигрышей:</h5>
                         <span id="volleyWins" class="stats"></span>
-                        <i class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
-                        <i class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
+                        <i id="volleyWinsPlus" class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
+                        <i id="volleyWinsMinus" class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
                     
                     <h5 class="card-title textik" style="font-size:1em">Проигрышей:</h5>
                         <span id="volleyLoses" class="stats"></span>
-                        <i class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
-                        <i class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
+                        <i id="volleyLosesPlus" class="fas fa-plus" style="margin-left:4px; margin-right:4px"></i>
+                        <i id="volleyLosesMinus" class="fas fa-minus" style="margin-left:4px; margin-right:4px"></i>
                     
                   </div>
             </div>

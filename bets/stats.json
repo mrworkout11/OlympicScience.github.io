@@ -1,14 +1,1 @@
-{
-	"Handball":[
-		{
-			"handWins":0,
-			"handLoses":0
-		}
-	],
-	"Volleyball":[
-		{
-			"volleyWins":0,
-			"volleyLoses":0
-		}
-	]
-}
+{"Handball":{"handWins":0,"handLoses":0},"Volleyball":{"volleyWins":0,"volleyLoses":0}}
